@@ -1,16 +1,16 @@
 <nav>
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link active" href="#">Главная</a>
+        <a class="nav-link active" [routerLink]="'/home'">Главная</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Автомобили</a>
+        <a class="nav-link active" [routerLink]="'/cars'">Автомобили</a>
       </li> 
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Информация</a>
+        <a class="nav-link disabled" [routerLink]="'/404'">Информация</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Контакты</a>
+        <a class="nav-link disabled" [routerLink]="'/404'" tabindex="-1" aria-disabled="true">Контакты</a>
       </li>
     </ul>
 </nav>
