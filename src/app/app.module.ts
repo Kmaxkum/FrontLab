@@ -1,22 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
-import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
-    PagenotfoundComponent,
-    AdminComponent
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

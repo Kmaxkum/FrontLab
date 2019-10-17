@@ -1,17 +1,18 @@
 // reports.module.ts
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 // containers
-import { CarsComponent } from './cars.component';
-
-// routes
-export const ROUTES: Routes = [
-    { path: '', component: CarsComponent, pathMatch: "full" }
-];
+import { CarsComponent } from './cars-view/cars.component';
+import { CarsRoutingModule } from './cars-routing.module';
 
 @NgModule({
-    imports: [RouterModule.forChild(ROUTES)],
+    imports: [
+        FormsModule,
+        CommonModule,
+        CarsRoutingModule
+    ],
     declarations: [CarsComponent]
 })
 export class CarsModule { }
