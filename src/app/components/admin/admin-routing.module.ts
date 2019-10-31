@@ -4,12 +4,14 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AdminCarsComponent } from './components/admin-cars/admin-cars.component';
 import { AdminAddCarComponent } from './components/admin-add-car/admin-add-car.component';
 import { AdminEditCarComponent } from './components/admin-edit-car/admin-edit-car.component';
+import { AuthGuardService } from '../auth/services/auth-guard.service';
 
 
 const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
+    canActivate: [AuthGuardService],
     children: [
       { path: 'cars', component: AdminCarsComponent },
       { path: 'add-car', component: AdminAddCarComponent},

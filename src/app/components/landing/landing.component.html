@@ -9,8 +9,10 @@
             <div class="about-content-paragraph">
               Вы не ездили на машине уже десять тысяч лет? Тогда вы по адресу! Каршеринг Орион предоставляет машины в аренду по самым выгодным ценам! Только самые последние модели в лучших комплектциях!
             </div>
-            <a class="btn btn-outline-white">Войти</a>
-            <a class="btn btn-outline-white">Регистрация</a>
+            <form *ngIf="!authService.isLoggedIn()" class="form-inline login-form">
+              <a class="btn btn-outline-white" routerLink="/auth/signin">Войти</a>
+              <a class="btn btn-outline-white" routerLink="/auth/signup">Регистрация</a>  
+            </form>
           </div>
         </div>
       </div>

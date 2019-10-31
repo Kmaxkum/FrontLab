@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
     providedIn: 'root'
   })
 export class CarService{
-    private apiUrl = `${environment.apiUrl}/cars`;
+    private apiUrl = `${environment.apiUrl}/car_sharing_api/cars`;
 
     constructor(private http: HttpClient){ }
       

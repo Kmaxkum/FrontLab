@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AuthService } from '../auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.less']
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    ) { }
 
-  ngOnInit() {
+  signOut() {
+    this.authService.signOut();
+    this.router.navigateByUrl('/');
   }
 
 }
