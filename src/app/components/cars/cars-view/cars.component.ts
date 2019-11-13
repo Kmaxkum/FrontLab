@@ -28,6 +28,15 @@ export class CarsComponent implements OnInit {
       this.socket.onopen = () => {
         this.socket.onmessage = (event) => {
           console.log(event.data);
+          const model = JSON.parse(event.data);
+          if(model.data) {
+            const messageType = JSON.parse(model.data).messageType;
+            console.log(messageType);
+            if(messageType == "data") {
+              console.log(JSON.parse(model.data).cars);
+              this.cars = JSON.parse(model.data).cars;
+            }
+          }
         }
       }
     }
