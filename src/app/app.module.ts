@@ -7,11 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { OauthSuccessComponent } from './components/oauth-success/oauth-success.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    OauthSuccessComponent
   ],
   imports: [
     BrowserModule,

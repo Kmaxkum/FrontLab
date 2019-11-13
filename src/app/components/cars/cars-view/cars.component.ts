@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CarService } from '../services/car.service';
 import { Car } from '../models/car.module';
 import { AdminDropboxService } from '../../admin/services/admin-load.service';
+import { debounce, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
+import { Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cars',
@@ -11,14 +14,41 @@ import { AdminDropboxService } from '../../admin/services/admin-load.service';
 })
 export class CarsComponent implements OnInit {
 
+  private socket: WebSocket;
   cars: Car[];
+  searchQuery: string;
+  queryChanged = new Subject<string>();
 
   constructor(
     private carService: CarService,
-    private adminService: AdminDropboxService,
-    ) { }
+    private adminService: AdminDropboxService,    
+    ) { 
+      this.socket = new WebSocket('wss://web-socket-server-lab.herokuapp.com/');
+      this.cars  = [];
+      this.socket.onopen = () => {
+        this.socket.onmessage = (event) => {
+          console.log(event.data);
+        }
+      }
+    }
 
   ngOnInit() {
     this.carService.getData().subscribe(data => this.cars=data);
+
+    this.queryChanged.pipe(
+      debounceTime(1000),
+      distinctUntilChanged()
+    ).subscribe(q => this.carService.search(q).subscribe(val => this.cars = val));
+  }
+
+  check(name: string) {
+    return name;
+  }
+
+  changed(query: string) {
+    if (query.trim() === '') {
+      return;
+    }
+    this.queryChanged.next(query);
   }
 }

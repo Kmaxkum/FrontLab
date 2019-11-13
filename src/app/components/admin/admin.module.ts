@@ -10,6 +10,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AdminCarsComponent } from './components/admin-cars/admin-cars.component';
 import { AdminAddCarComponent } from './components/admin-add-car/admin-add-car.component';
 import { AdminEditCarComponent } from './components/admin-edit-car/admin-edit-car.component';
+import { AdminFilesComponent } from './components/admin-files/admin-files.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AdminEditCarComponent } from './components/admin-edit-car/admin-edit-ca
         AdminComponent,
         AdminCarsComponent,
         AdminAddCarComponent,
-        AdminEditCarComponent
+        AdminEditCarComponent,
+        AdminFilesComponent
     ]
 })
 export class AdminModule { }

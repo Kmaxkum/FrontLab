@@ -36,4 +36,10 @@ export class CarService{
     delete(id : number): Observable<Response> {
         return this.http.delete<Response>(`${this.apiUrl}/${id}`)
     }
+
+    search(query: string): Observable<Car[]> {
+        return this.http.get<Car[]>(`${this.apiUrl}/?q=${query.trim()}`).pipe(
+          map(data => data.map(item => new Car().deserialize(item)))
+        );
+      }
 }

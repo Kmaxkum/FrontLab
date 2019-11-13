@@ -5,6 +5,7 @@ import { AdminCarsComponent } from './components/admin-cars/admin-cars.component
 import { AdminAddCarComponent } from './components/admin-add-car/admin-add-car.component';
 import { AdminEditCarComponent } from './components/admin-edit-car/admin-edit-car.component';
 import { AuthGuardService } from '../auth/services/auth-guard.service';
+import { AdminFilesComponent} from './components/admin-files/admin-files.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'cars', component: AdminCarsComponent },
       { path: 'add-car', component: AdminAddCarComponent},
       { path: 'edit-car', component: AdminEditCarComponent},
+      { path: 'files', component: AdminFilesComponent}
     ]
   }
 ];
