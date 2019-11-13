@@ -6,6 +6,7 @@ import { AdminAddCarComponent } from './components/admin-add-car/admin-add-car.c
 import { AdminEditCarComponent } from './components/admin-edit-car/admin-edit-car.component';
 import { AuthGuardService } from '../auth/services/auth-guard.service';
 import { AdminFilesComponent} from './components/admin-files/admin-files.component';
+import { AdminGroupComponent} from './components/admin-group/admin-group.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
       { path: 'cars', component: AdminCarsComponent },
       { path: 'add-car', component: AdminAddCarComponent},
       { path: 'edit-car', component: AdminEditCarComponent},
-      { path: 'files', component: AdminFilesComponent}
+      { path: 'files', component: AdminFilesComponent},
+      { path: 'group', component: AdminGroupComponent}
     ]
   }
 ];
